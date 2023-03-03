@@ -27,7 +27,7 @@ function parseValue(value: string, type: EnvironmentType) {
 
 export default function forceEnvironmentVars<E extends EnvironmentSchema>(
   environmentSchema: E,
-  defaultValues: {
+  defaultValues?: {
     [key in keyof E]?: unknown
   }
 ) {
@@ -44,7 +44,7 @@ export default function forceEnvironmentVars<E extends EnvironmentSchema>(
       return
     }
 
-    const defaultValue = defaultValues[variableName as keyof E]
+    const defaultValue = defaultValues?.[variableName as keyof E]
     if (!defaultValue) {
       throw new Error(`Environment Variable ${variableName} not found`)
     }
