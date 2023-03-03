@@ -1,15 +1,17 @@
 {
   "name": "@in-q/force-environment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
-  "module": "./dist/index.mjs",
-  "main": "./dist/index.mjs",
+  "module": "dist/index.mjs",
+  "main": "dist/index.mjs",
   "scripts": {
     "build": "tsup",
+    "build:prod": "NODE_ENV=production tsup",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --cache --cache-location ./node_modules/.cache/eslint --max-warnings 0 .",
     "lint:typescript": "tsc --noEmit"
   },
+  "types": "dist/index.d.ts",
   "exports": {
     "default": "./dist/index.js",
     "import": "./dist/index.mjs",
@@ -17,6 +19,9 @@
     "node": "./dist/index.js",
     "types": "./dist/index.d.ts"
   },
+  "files": [
+    "/dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "MIT",
