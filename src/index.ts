@@ -45,7 +45,7 @@ export default function forceEnvironmentVars<E extends EnvironmentSchema>(
     }
 
     const defaultValue = defaultValues?.[variableName as keyof E]
-    if (!defaultValue) {
+    if (defaultValue == null) {
       throw new Error(`Environment Variable ${variableName} not found`)
     }
 
